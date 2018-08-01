@@ -48,6 +48,8 @@ data = [ {‘name’: ‘Viktor’, ‘city’: ‘Kiev’, ‘age’: 30 },
                        {‘name’: ‘Dmitriy’, ‘age’: 21}]
        }
 
+       
+       
 """
 
 
