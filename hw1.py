@@ -48,8 +48,6 @@ data = [ {‘name’: ‘Viktor’, ‘city’: ‘Kiev’, ‘age’: 30 },
                        {‘name’: ‘Dmitriy’, ‘age’: 21}]
        }
 
-       
-       
 """
 
 
@@ -61,6 +59,11 @@ def dict_gen(keys):
     for i in keys:
         out_dict[i] = i*i
     return out_dict
+
+# /// new ver
+# dict_gen = {i:i**2 for i in keys}
+# \\\ new ver
+
 print("dict_gen(keys):", dict_gen(keys))
 
 # 2.
@@ -71,6 +74,12 @@ def gen_list():
     for i in range(2,101,2):
         out_list.append(i)
     return out_list
+
+# /// new ver
+# gen_list = [tips  for tips in range(1,101) if tips%2 == 0]
+# print("gen_list():", gen_list)
+#\\\ new ver
+
 print("gen_list():", gen_list())
 
 
@@ -85,7 +94,7 @@ consonants = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "
 
 import random
 in_str = input("INPUT STRING(A-Z):")
-print("in_str:", in_str)
+# print("in_str:", in_str)
 
 def vowels_func(in_str):
     out_str=""
@@ -95,6 +104,11 @@ def vowels_func(in_str):
         else:
             out_str += in_str[i]
     return out_str
+
+# /// new ver
+new_list = [random.choice(consonants) if in_str[i] in vowels else in_str[i] for i in range(len(in_str))]
+print("ASD:", "".join(new_list))
+# \\\ new ver
 
 print("vowels_func(in_str):", vowels_func(in_str))
 
@@ -134,6 +148,8 @@ for keyA in dict_one:
     if keyA in dict_two:
         print("Common key:", keyA)
 
+common_keys = [keyA for keyA in dict_one if keyA in dict_two]
+print('common_keys:gen', common_keys)
 # 6. Дан массив из словарей
 print()
 print("6 Task:")
@@ -158,10 +174,14 @@ for rec in data:
     if getter not in result_dict:
         result_dict[getter]=[]
 
-    temp_fields={}
-    for fields in rec:
-        if fields != 'city':
-            temp_fields[fields]=rec[fields]
+    # temp_fields={}
+    # for fields in rec:
+    #     if fields != 'city':
+    #         temp_fields[fields]=rec[fields]
+
+    #
+    temp_fields = {fields:rec[fields] for fields in rec if fields != 'city' }
+    #
 
     result_dict[getter].append(temp_fields)
 
