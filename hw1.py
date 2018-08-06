@@ -54,6 +54,8 @@ data = [ {‘name’: ‘Viktor’, ‘city’: ‘Kiev’, ‘age’: 30 },
 # 1.
 print("1 Task:")
 keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
 def dict_gen(keys):
     out_dict={}
     for i in keys:
@@ -81,10 +83,6 @@ def gen_list():
 #\\\ new ver
 
 print("gen_list():", gen_list())
-
-
-
-
 
 # 3.
 print()
@@ -150,6 +148,7 @@ for keyA in dict_one:
 
 common_keys = [keyA for keyA in dict_one if keyA in dict_two]
 print('common_keys:gen', common_keys)
+
 # 6. Дан массив из словарей
 print()
 print("6 Task:")
@@ -166,26 +165,19 @@ data = [ {'name': 'Viktor', 'city': 'Kiev', 'age': 30 },
 
 sorted_by_age = sorted(data, key=lambda x: x['age']) # Sort by age
 print(sorted_by_age)
-#asd = sorted(data, key=lambda x: x['city']) # Sort by age
+#asd = sorted(data, key=lambda x: x['city']) # Sort by city
 
 result_dict={}
 for rec in data:
     getter = rec.get('city')
     if getter not in result_dict:
         result_dict[getter]=[]
-
-    # temp_fields={}
-    # for fields in rec:
-    #     if fields != 'city':
-    #         temp_fields[fields]=rec[fields]
-
-    #
     temp_fields = {fields:rec[fields] for fields in rec if fields != 'city' }
-    #
-
     result_dict[getter].append(temp_fields)
 
-print(result_dict)
+
+import pprint
+pprint.pprint(result_dict)
 
 
 
