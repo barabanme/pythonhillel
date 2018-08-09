@@ -32,6 +32,8 @@ print(ooo.title().swapcase())
 
 m_str = "foo bar"
 m_str.ljust(16, '~')
+print(m_str.ljust(16, '~'))
+foo bar~~~~~~~~~
 m_str.rjust(16, '~')
 m_str.center(16, '~')
 
