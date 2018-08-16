@@ -83,3 +83,4 @@ in_list = read_data("test_file_lec8-nn.txt")
 lists = [lll.split(" ") for lll in in_list]
 asd = [item[1] for item in lists if re.match(r"^[ak]", item[0])]
 print(asd)
+
